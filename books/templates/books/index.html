@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% load static %}
+
+
+{% block content%}
+<h1>메인 페이지</h1>
+<div class="d-flex flex-wrap justify-content-start gap-3">
+{% for book in books %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{book.cover_image.url}}" class="card-img-top" alt="img">
+    <div class="card-body">
+      <h5 class="card-title">{{book.title}}</h5>
+      <p class="card-text">{{books.description}}</p>
+      <a href="{% url "books:detail" book.pk %}" class="btn btn-primary">Detail</a>
+    </div>
+  </div>
+
+{% endfor %} 
+</div>
+
+{% endblock content %}
